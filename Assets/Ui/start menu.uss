@@ -1,0 +1,28 @@
+.Menu-button {
+    width: 40%;
+    background-color: rgb(40, 238, 248);
+    height: 17%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    font-size: 60px;
+    -unity-font: url("project://database/Assets/Fonts/JenaGotisch.ttf?fileID=12800000&guid=b0c4518c88f0d19499504fd2abe518ac&type=3#JenaGotisch");
+    -unity-font-style: normal;
+    -unity-font-definition: initial;
+    color: rgb(0, 0, 0);
+    text-overflow: clip;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+    transition-duration: 0.13s;
+    transition-timing-function: ease-in-out;
+}
+
+.Menu-button:hover {
+    scale: 1.1 1.1;
+}
+
+.Menu-button:active {
+    background-color: rgb(40, 199, 248);
+}
