@@ -1,14 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class surfer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Ui
+    VisualElement ui;
+    GameObject uiController;
+
+    VisualElement life1;
+    VisualElement life2;
+    VisualElement life3;
+    int hp = 3;
 
 
+    // Movment 
     Rigidbody2D rigB;
     [SerializeField] float moveSpeed = 10;
+
+    private void Awake()
+    {
+        uiController = GameObject.FindGameObjectWithTag("UiControler");
+        ui = uiController.GetComponent<UIDocument>().rootVisualElement;
+    }
+    private void OnEnable()
+    {
+        life1 = ui.Q<VisualElement>("life1");
+        life2 = ui.Q<VisualElement>("life2");
+        life3 = ui.Q<VisualElement>("life3");
+    }
 
     void Start()
     {
@@ -38,6 +60,24 @@ public class surfer : MonoBehaviour
     {
         if (other.tag == "SurferDie")
         {
+            switch (hp)
+            {
+                case 3:
+                    life1.style.display = DisplayStyle.None;
+                    break;
+                case 2:
+                    life2.style.display = DisplayStyle.None;
+                    break;
+                case 1:
+                    life3.style.display = DisplayStyle.None;
+                    break;
+                case 0:
+                    SceneManager.LoadScene(1);
+                    break;
+
+            }
+
+            // clean up
             Destroy(gameObject);
         }
     }
