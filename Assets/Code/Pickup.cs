@@ -26,4 +26,5 @@ public class Pickup : MonoBehaviour
             }
         }
     }
+    // sdmdm
 }
